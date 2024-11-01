@@ -49,7 +49,10 @@ public class Player
 	
 	public void checkItems()
 	{
-		
+		for(String s : inventory)
+		{
+			System.out.println("\u2022 " + s);
+		}
 	}
 
 	
