@@ -22,37 +22,36 @@ public class Player
 	
 	public void interpretInput(String input)
 	{
-		if(input.contains("move"))
+		if(input.contains("move") || input.contains("traverse") || input.contains("navigate") || input.contains("go"))
 		{
-			if(input.contains("up"))
+			if(input.contains("up") || input.contains("north"))
 			{
 				move("up");
 			}
-			else if(input.contains("down"))
+			else if(input.contains("down") || input.contains("south"))
 			{
 				move("down");
 			}
-			else if(input.contains("left"))
+			else if(input.contains("left") || input.contains("west"))
 			{
 				move("left");
 			}
-			else if(input.contains("right"))
+			else if(input.contains("right") || input.contains("east"))
 			{
 				move("right");
 			}
 		}
-		else if(input.contains("look"))
+		else if(input.contains("look") || input.contains("visualize") || input.contains("observe"))
 		{
 			System.out.println(currentRoom.look());
+		} else if (input.contains("take")) {
+		    
 		}
 	}
 	
 	public void checkItems()
 	{
-		for(String s : inventory)
-		{
-			System.out.println("\u2022 " + s);
-		}
+		
 	}
 
 	
