@@ -1,14 +1,23 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player
 {
 	private Room currentRoom;
-	private ArrayList<String> inventory = new ArrayList<>();
-	private Room[] rooms = new Room[8];
+	private ArrayList<String> inventory;
+	private Room[] rooms;
 	
-	public static void main(String[] args)
+	public Player(int roomNumber)
 	{
+		rooms = new Room[roomNumber];
+		inventory = new ArrayList<>();
 		
+		for(int i = 0; i < roomNumber; i++)
+		{
+			rooms[i] = new Room(i);
+		}
+		
+		currentRoom = rooms[0];
 	}
 	
 	public void interpretInput(String input)
@@ -42,6 +51,7 @@ public class Player
 	{
 		
 	}
+
 	
 	public void move(String direction)
 	{
