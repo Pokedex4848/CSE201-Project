@@ -1,12 +1,20 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class that controls the Player.
+ */
 public class Player
 {
 	private Room currentRoom;
 	private ArrayList<String> inventory;
 	private Room[] rooms;
 	
+	/**
+	 * Constructor that builds the player class.
+	 * 
+	 * @param roomNumber The room that the player is in
+	 */
 	public Player(int roomNumber)
 	{
 		rooms = new Room[roomNumber];
@@ -20,41 +28,52 @@ public class Player
 		currentRoom = rooms[0];
 	}
 	
+	/**
+	 * Interprets the Player's input.
+	 * 
+	 * @param input The command that the Player entered that they want to run.
+	 */
 	public void interpretInput(String input)
 	{
-		if(input.contains("move") || input.contains("traverse") || input.contains("navigate") || input.contains("go"))
+		if(input.contains("move"))
 		{
-			if(input.contains("up") || input.contains("north"))
+			if(input.contains("up"))
 			{
 				move("up");
 			}
-			else if(input.contains("down") || input.contains("south"))
+			else if(input.contains("down"))
 			{
 				move("down");
 			}
-			else if(input.contains("left") || input.contains("west"))
+			else if(input.contains("left"))
 			{
 				move("left");
 			}
-			else if(input.contains("right") || input.contains("east"))
+			else if(input.contains("right"))
 			{
 				move("right");
 			}
 		}
-		else if(input.contains("look") || input.contains("visualize") || input.contains("observe"))
+		else if(input.contains("look"))
 		{
 			System.out.println(currentRoom.look());
-		} else if (input.contains("take")) {
-		    
 		}
 	}
 	
+	/**
+	 * Checks which items are in the Player's inventory
+	 */
 	public void checkItems()
 	{
 		
 	}
 
-	
+	/**
+	 * Command that the player can type in that allows them to move.
+	 * 
+	 * @param direction The direction that the Player wants to move (up, down, left,
+	 *                  right).
+	 */
 	public void move(String direction)
 	{
 		if(direction.equals("up"))

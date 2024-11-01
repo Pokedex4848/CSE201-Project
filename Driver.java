@@ -1,7 +1,13 @@
 import java.util.Scanner;
 
+/**
+ * Class that runs the game's main method.
+ */
 public class Driver
 {
+	/*
+	 * The main method
+	 */
 	public static void main(String[] args)
 	{
 		Player player = new Player(8);
