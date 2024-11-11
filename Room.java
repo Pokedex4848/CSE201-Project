@@ -6,6 +6,8 @@ public class Room {
 	 * Holds the ID of the Room.
 	 */
 	private int roomID;
+	private String item;
+	private boolean canPickUp;
 
 	/**
 	 * Constructor that builds the Room object.
@@ -14,6 +16,7 @@ public class Room {
 	 */
 	public Room(int roomID) {
 		this.roomID = roomID;
+		this.canPickUp = true;
 	}
 
 	/**
@@ -22,8 +25,58 @@ public class Room {
 	 * 
 	 * @return The description of the Room.
 	 */
-	public String look() {
-		return "Test " + roomID;
+	public String look()
+	{
+		switch(roomID)
+		{
+		case 0:
+			return "" + roomID;
+		case 1:
+			return "" + roomID;
+		case 2:
+			return "" + roomID;
+		case 3:
+			return "" + roomID;
+		case 4:
+			return "" + roomID;
+		case 5:
+			return "" + roomID;
+		case 6:
+			return "" + roomID;
+		case 7:
+			return "" + roomID;
+		default:
+			return "This room doesn't exist";
+		}
+	}
+	
+	public boolean pickUp(String input)
+	{
+		if(canPickUp)
+		{
+			if(roomID == 1 && input.contains("key"))
+			{
+				canPickUp = false;
+				item = "Key";
+				System.out.println("Picked up key!");
+				return true;
+			}
+			else
+			{
+				System.out.println("This item doesn't exist in this room!");
+				return false;
+			}
+		}
+		else
+		{
+			System.out.println("This item doesn't exist in this room!");
+			return false;
+		}
+	}
+	
+	public String getItem()
+	{
+		return item;
 	}
 
 	/**

@@ -57,8 +57,17 @@ public class Player
 		else if(input.contains("look") || input.contains("visualize") || input.contains("observe"))
 		{
 			System.out.println(currentRoom.look());
-		} else if (input.contains("take")) {
-		    
+		}
+		else if (input.contains("take") || input.contains("pick up") || input.contains("grab"))
+		{
+			if(currentRoom.pickUp(input))
+			{				
+				inventory.add(currentRoom.getItem());
+			}
+		}
+		else if(input.contains("inventory"))
+		{
+			checkItems();
 		}
 	}
 	
