@@ -103,6 +103,8 @@ public class Player
 			else if(currentRoom.getID() == 0)
 			{
 				currentRoom = rooms[1];
+                System.out.println("The wide atrium you enter has chiseled stone columns and brick archways adorned with porticos containing crumbling statues. \n There is a cobweb-filled hallway to your west and a torch-lit corridor to your east.");
+
 			}
 		}
 		else if(direction.equals("down"))
@@ -118,6 +120,7 @@ public class Player
 			else if(currentRoom.getID() == 1)
 			{
 				currentRoom = rooms[0];
+				System.out.println("You are standing in a small room, with a solid wood table to your left and candle siting atop it. \n There is a door to your north ");
 			}
 		}
 		else if(direction.equals("left"))
@@ -133,6 +136,7 @@ public class Player
 			else if(currentRoom.getID() == 2)
 			{
 				currentRoom = rooms[1];
+				System.out.println("The wide atrium you enter has chiseled stone columns and brick archways adorned with porticos containing crumbling statues. \n There is a cobweb-filled hallway to your west and a torch-lit corridor to your east.");
 			}
 			else if(currentRoom.getID() == 1)
 			{
@@ -156,6 +160,8 @@ public class Player
 			else if(currentRoom.getID() == 3)
 			{
 				currentRoom = rooms[1];
+                System.out.println("The wide atrium you enter has chiseled stone columns and brick archways adorned with porticos containing crumbling statues. \n There is a cobweb-filled hallway to your west and a torch-lit corridor to your east.");
+
 			}
 		}
 	}
