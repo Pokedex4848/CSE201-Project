@@ -112,10 +112,12 @@ public class Player
 			if(currentRoom.getID() == 6)
 			{
 				currentRoom = rooms[2];
+				System.out.println("The room you enter is cast in light from a central brazier, and the walls are made of laid stone. /n There is a door to your north and west.");
 			}
 			else if(currentRoom.getID() == 4)
 			{
 				currentRoom = rooms[3];
+				System.out.println("Steaming pipes spider web the walls, and a mahogany desk sits in the corner. \n There is a passage to your north and east");
 			}
 			else if(currentRoom.getID() == 1)
 			{
@@ -156,6 +158,8 @@ public class Player
 			else if(currentRoom.getID() == 1)
 			{
 				currentRoom = rooms[2];
+                System.out.println("The room you enter is cast in light from a central brazier, and the walls are made of laid stone. /n There is a door to your north and west.");
+
 			}
 			else if(currentRoom.getID() == 3)
 			{
