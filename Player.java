@@ -156,10 +156,14 @@ public class Player
 			if(currentRoom.getID() == 6)
 			{
 				currentRoom = rooms[7];
+				// Puzzle room description to be added after puzzle creation
+
 			}
 			else if(currentRoom.getID() == 4)
 			{
 				currentRoom = rooms[5];
+				// Puzzle room description to be added after puzzle creation
+
 			}
 			else if(currentRoom.getID() == 1)
 			{
