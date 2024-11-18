@@ -40,11 +40,11 @@ public class Room {
         case 4:
             return "This hallway is barren except for the braziers placed at intervals along the walls, casting flickering pools of orange light that barely break through the darkness. The stone floor is cold and slightly damp beneath your feet, and the silence here feels almost heavy. There is a door to your east, slightly ajar, and another to the south, its iron handle tarnished with age." + roomID;
         case 5:
-            return "" + roomID;
+            return "" + roomID; // Puzzle room description to be added after puzzle creation
         case 6:
             return "A chill wind whistles through this corridor, rushing up through steel grates along the floor and carrying with it a faint metallic scent. \n The walls are bare, and the air feels damp and cool, as if it has traveled from deep underground. \n The sound of the wind echoes, creating an eerie, hollow resonance that fills the passage. \n There are entrances to your east, where faint light glows, and to the south, disappearing into shadow." + roomID;
         case 7:
-            return "" + roomID;
+            return "" + roomID; // Puzzle room description to be added after puzzle creation
         default:
             return "This room doesn't exist";
         }

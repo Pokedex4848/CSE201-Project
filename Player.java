@@ -95,10 +95,12 @@ public class Player
 			if(currentRoom.getID() == 2)
 			{
 				currentRoom = rooms[6];
+				System.out.println("Wind blows through this corridor through steel grates along the floor. \n There are entrences to your east and south");
 			}
 			else if(currentRoom.getID() == 3)
 			{
 				currentRoom = rooms[4];
+				System.out.println("This hallway is barren except for braziers placed along the walls. \n There is a door to your east and south");
 			}
 			else if(currentRoom.getID() == 0)
 			{
@@ -130,10 +132,14 @@ public class Player
 			if(currentRoom.getID() == 7)
 			{
 				currentRoom = rooms[6];
+                System.out.println("Wind blows through this corridor through steel grates along the floor. \n There are entrences to your east and south");
+
 			}
 			else if(currentRoom.getID() == 5)
 			{
 				currentRoom = rooms[4];
+                System.out.println("This hallway is barren except for braziers placed along the walls. \n There is a door to your east and south");
+
 			}
 			else if(currentRoom.getID() == 2)
 			{
