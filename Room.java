@@ -50,6 +50,13 @@ public class Room {
         }
     }
     
+	/**
+	 * Method that allows the user to pick up various items in a room and adds it to
+	 * their inventory if the item exists in the room that they are in.
+	 * 
+	 * @param input The item that the user is trying to pick up.
+	 * @return True of the item can be picked up, false if it can't be picked up.
+	 */
     public boolean pickUp(String input)
     {
         if(canPickUp)
@@ -74,6 +81,11 @@ public class Room {
         }
     }
     
+	/**
+	 * Method to return the name of the item in each room.
+	 * 
+	 * @return The name of the item.
+	 */
     public String getItem()
     {
         return item;

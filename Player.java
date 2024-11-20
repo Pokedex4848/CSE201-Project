@@ -35,6 +35,7 @@ public class Player
 	 */
 	public void interpretInput(String input)
 	{
+		// Interprets input to call the move method to move the user
 		if(input.contains("move") || input.contains("traverse") || input.contains("navigate") || input.contains("go"))
 		{
 			if(input.contains("up") || input.contains("north"))
@@ -54,10 +55,12 @@ public class Player
 				move("right");
 			}
 		}
+		// Interprets the input to call the look method to look around a room
 		else if(input.contains("look") || input.contains("visualize") || input.contains("observe"))
 		{
 			System.out.println(currentRoom.look());
 		}
+		// Interprets the input to call the pickUp method to pick up an item in the room
 		else if (input.contains("take") || input.contains("pick up") || input.contains("grab"))
 		{
 			if(currentRoom.pickUp(input))
@@ -65,9 +68,14 @@ public class Player
 				inventory.add(currentRoom.getItem());
 			}
 		}
-		else if(input.contains("inventory"))
+		// Interprets the input to call the checkItems method to check the items in the
+		// user's inventory
+		else if(input.contains("inventory") || input.contains("check items"))
 		{
 			checkItems();
+		}
+		else {
+			System.out.println("I do not recognize this command.");
 		}
 	}
 	
