@@ -35,6 +35,8 @@ public class Player
 	 */
 	public void interpretInput(String input)
 	{
+		input = input.toLowerCase();
+		
 		// Interprets input to call the move method to move the user
 		if(input.contains("move") || input.contains("traverse") || input.contains("navigate") || input.contains("go"))
 		{
