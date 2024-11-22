@@ -61,11 +61,18 @@ public class Room {
     {
         if(canPickUp)
         {
-            if(roomID == 1 && input.contains("key"))
+            if(roomID == 3 && input.contains("key"))
             {
                 canPickUp = false;
-                item = "Key";
-                System.out.println("Picked up key!");
+                item = "Rusty Key";
+                System.out.println("Picked up rusty key!");
+                return true;
+            }
+            else if(roomID == 5 && input.contains("key"))
+            {
+            	canPickUp = false;
+                item = "Golden Key";
+                System.out.println("Picked up rusty key!");
                 return true;
             }
             else
@@ -76,7 +83,7 @@ public class Room {
         }
         else
         {
-            System.out.println("This item doesn't exist in this room!");
+            System.out.println("You can't pick that item up right now.");
             return false;
         }
     }

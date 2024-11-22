@@ -14,9 +14,7 @@ public class Door
 	 */
 	public Door(int doorID)
 	{
-		this.doorID = doorID;
-		open = false;
-		doorCode = "";
+		this(doorID, "");
 	}
 	
 	/**

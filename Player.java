@@ -9,6 +9,7 @@ public class Player
 	private Room currentRoom;
 	private ArrayList<String> inventory;
 	private Room[] rooms;
+	private Door[] doors;
 	
 	/**
 	 * Constructor that builds the player class.
@@ -18,6 +19,8 @@ public class Player
 	public Player(int roomNumber)
 	{
 		rooms = new Room[roomNumber];
+		doors[0] = new Door(0, "Rusty Key");
+		doors[1] = new Door(1, "Golden Key");
 		inventory = new ArrayList<>();
 		
 		for(int i = 0; i < roomNumber; i++)
@@ -76,7 +79,33 @@ public class Player
 		{
 			checkItems();
 		}
-		else {
+		else if(input.contains("unlock") || input.contains("open"))
+		{
+			if(currentRoom.getID() == 4 && inventory.contains("Rusty Key"))
+			{
+				if(!doors[0].isOpen())
+				{
+					doors[0].openDoor("Rusty Key");
+				}
+				else
+				{
+					System.out.println("This door has already been unlocked!");
+				}
+			}
+			else if(currentRoom.getID() == 6 && inventory.contains("Golden Key"))
+			{
+				if(!doors[1].isOpen())
+				{
+					doors[1].openDoor("Golden Key");
+				}
+				else
+				{
+					System.out.println("This door has already been unlocked!");
+				}
+			}
+		}
+		else
+		{
 			System.out.println("I do not recognize this command.");
 		}
 	}
@@ -165,13 +194,27 @@ public class Player
 		{
 			if(currentRoom.getID() == 6)
 			{
-				currentRoom = rooms[7];
+				if(doors[1].isOpen())
+				{
+					currentRoom = rooms[7];
+				}
+				else
+				{
+					System.out.println("The door to this room is locked.");
+				}
 				// Puzzle room description to be added after puzzle creation
 
 			}
 			else if(currentRoom.getID() == 4)
 			{
-				currentRoom = rooms[5];
+				if(doors[0].isOpen())
+				{
+					currentRoom = rooms[5];
+				}
+				else
+				{
+					System.out.println("The door to this room is locked.");
+				}
 				// Puzzle room description to be added after puzzle creation
 
 			}
