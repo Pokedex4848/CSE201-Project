@@ -188,6 +188,8 @@ public class Player
 			else if(currentRoom.getID() == 1)
 			{
 				currentRoom = rooms[3];
+                System.out.println("Steaming pipes spider web the walls, and a mahogany desk sits in the corner. \n There is a passage to your north and east");
+
 			}
 		}
 		else if(direction.equals("right"))
@@ -197,6 +199,7 @@ public class Player
 				if(doors[1].isOpen())
 				{
 					currentRoom = rooms[7];
+					System.out.println("As you enter Industrial lighting shines down on you. \n The metal panneled hallway leads to an elevator. ");
 				}
 				else
 				{
@@ -210,6 +213,7 @@ public class Player
 				if(doors[0].isOpen())
 				{
 					currentRoom = rooms[5];
+					System.out.println("Wood planeling covers the walls with a bookshelf and an adjoing ladder in the corner. \n There is a door to your east where you imerged.");
 				}
 				else
 				{
