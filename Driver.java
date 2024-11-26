@@ -16,16 +16,20 @@ public class Driver
 		
 		String input;
 		
-		//intro statment at game beginning about where you are.
-        System.out.println("Welcome to Spook!\n\n\nYou are standing in a small room, with a solid wood table to your left and candle siting atop it. \n There is a door to your north ");
+		//intro statement at game beginning about where you are.
+        System.out.println("Welcome to Spook!\nYou are able to move between rooms, and there is a \"look\" command that gives more details about a room. \nYou can also type \"exit\" or \"quit\" to leave the game. \nHave fun!\n\n\nYou wake up in a small room, with a solid wood table to your left and candle siting atop it. \n There is a single door to your north ");
 
-		
-		do
+		while(true)
 		{
 			input = in.nextLine();
+			
+			if(input.equalsIgnoreCase("quit") || input.equalsIgnoreCase("exit"))
+			{
+				break;
+			}
+			
 			player.interpretInput(input);
 		}
-		while(!input.equalsIgnoreCase("quit"));
 		
 		in.close();
 	}

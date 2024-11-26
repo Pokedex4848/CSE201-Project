@@ -19,6 +19,7 @@ public class Player
 	public Player(int roomNumber)
 	{
 		rooms = new Room[roomNumber];
+		doors = new Door[2];
 		doors[0] = new Door(0, "Rusty Key");
 		doors[1] = new Door(1, "Golden Key");
 		inventory = new ArrayList<>();
@@ -75,7 +76,7 @@ public class Player
 		}
 		// Interprets the input to call the checkItems method to check the items in the
 		// user's inventory
-		else if(input.contains("inventory") || input.contains("check items"))
+		else if(input.contains("inventory") || input.contains("items"))
 		{
 			checkItems();
 		}
@@ -86,6 +87,7 @@ public class Player
 				if(!doors[0].isOpen())
 				{
 					doors[0].openDoor("Rusty Key");
+					System.out.println("Unlocked door");
 				}
 				else
 				{
@@ -97,11 +99,32 @@ public class Player
 				if(!doors[1].isOpen())
 				{
 					doors[1].openDoor("Golden Key");
+					System.out.println("Unlocked door");
 				}
 				else
 				{
 					System.out.println("This door has already been unlocked!");
 				}
+			}
+		}
+		else if(input.contains("ladder") && (input.contains("fix") || input.contains("repair")))
+		{
+			if(currentRoom.getID() == 5)
+			{
+				if(inventory.contains("Wood Plank"))
+				{
+					inventory.remove("Wood Plank");
+					System.out.println("You can now climb the ladder. Atop sits a shining, golden key.");
+					currentRoom.togglePickUp();
+				}
+				else
+				{
+					System.out.println("You don't seem to have the right item...");
+				}
+			}
+			else
+			{
+				System.out.println("This is not the right room for that.");
 			}
 		}
 		else
@@ -134,7 +157,7 @@ public class Player
 			if(currentRoom.getID() == 2)
 			{
 				currentRoom = rooms[6];
-				System.out.println("Wind blows through this corridor through steel grates along the floor. \n There are entrences to your east and south");
+				System.out.println("Wind blows through this corridor through steel grates along the floor. \n There are entrances to your east and south");
 			}
 			else if(currentRoom.getID() == 3)
 			{
@@ -145,7 +168,10 @@ public class Player
 			{
 				currentRoom = rooms[1];
                 System.out.println("The wide atrium you enter has chiseled stone columns and brick archways adorned with porticos containing crumbling statues. \n There is a cobweb-filled hallway to your west and a torch-lit corridor to your east.");
-
+			}
+			else
+			{
+				System.out.println("You can't move in this direction.");
 			}
 		}
 		else if(direction.equals("down"))
@@ -153,17 +179,21 @@ public class Player
 			if(currentRoom.getID() == 6)
 			{
 				currentRoom = rooms[2];
-				System.out.println("The room you enter is cast in light from a central brazier, and the walls are made of laid stone. /n There is a door to your north and west.");
+				System.out.println("The room you enter is cast in light from a central brazier, and the walls are made of laid stone. \n There is a door to your north and west.");
 			}
 			else if(currentRoom.getID() == 4)
 			{
 				currentRoom = rooms[3];
-				System.out.println("Steaming pipes spider web the walls, and a mahogany desk sits in the corner. \n There is a passage to your north and east");
+				System.out.println("Steaming pipes spiderweb the walls, and a mahogany desk sits in the corner. \n There is a passage to your north and east");
 			}
 			else if(currentRoom.getID() == 1)
 			{
 				currentRoom = rooms[0];
-				System.out.println("You are standing in a small room, with a solid wood table to your left and candle siting atop it. \n There is a door to your north ");
+				System.out.println("You are standing in the room you awoke in, with a solid wood table to your left and candle siting atop it. \n There is a door to your north ");
+			}
+			else
+			{
+				System.out.println("You can't move in this direction.");
 			}
 		}
 		else if(direction.equals("left"))
@@ -171,14 +201,12 @@ public class Player
 			if(currentRoom.getID() == 7)
 			{
 				currentRoom = rooms[6];
-                System.out.println("Wind blows through this corridor through steel grates along the floor. \n There are entrences to your east and south");
-
+                System.out.println("Wind blows through this corridor through steel grates along the floor. \n There are entrances to your east and south");
 			}
 			else if(currentRoom.getID() == 5)
 			{
 				currentRoom = rooms[4];
                 System.out.println("This hallway is barren except for braziers placed along the walls. \n There is a door to your east and south");
-
 			}
 			else if(currentRoom.getID() == 2)
 			{
@@ -188,8 +216,11 @@ public class Player
 			else if(currentRoom.getID() == 1)
 			{
 				currentRoom = rooms[3];
-                System.out.println("Steaming pipes spider web the walls, and a mahogany desk sits in the corner. \n There is a passage to your north and east");
-
+                System.out.println("Steaming pipes spiderweb the walls, and a mahogany desk sits in the corner. \n There is a passage to your north and east");
+			}
+			else
+			{
+				System.out.println("You can't move in this direction.");
 			}
 		}
 		else if(direction.equals("right"))
@@ -199,40 +230,42 @@ public class Player
 				if(doors[1].isOpen())
 				{
 					currentRoom = rooms[7];
-					System.out.println("As you enter Industrial lighting shines down on you. \n The metal panneled hallway leads to an elevator. ");
+					System.out.println("As you enter the room, industrial lighting shines down on you. \n The back of the room contains an elevator, which leads you to the outside world.");
+					
+					//May change depending on whether we want the game to exit as soon as the player enters, or require them to actually enter the elevator first.
+					System.out.println("\n\nYou have escaped the dark and mysterious basement and are now free. Congratulations!");
+					System.exit(0);
 				}
 				else
 				{
-					System.out.println("The door to this room is locked.");
+					System.out.println("The door to this room is locked with an ornate golden lock.");
 				}
-				// Puzzle room description to be added after puzzle creation
-
 			}
 			else if(currentRoom.getID() == 4)
 			{
 				if(doors[0].isOpen())
 				{
 					currentRoom = rooms[5];
-					System.out.println("Wood planeling covers the walls with a bookshelf and an adjoing ladder in the corner. \n There is a door to your east where you imerged.");
+					System.out.println("Wood paneling covers the walls, and a bookshelf with an attached ladder is in the corner. \n There is a door to your west where you emerged.");
 				}
 				else
 				{
-					System.out.println("The door to this room is locked.");
+					System.out.println("The door to this room is locked with a rusty lock.");
 				}
-				// Puzzle room description to be added after puzzle creation
-
 			}
 			else if(currentRoom.getID() == 1)
 			{
 				currentRoom = rooms[2];
-                System.out.println("The room you enter is cast in light from a central brazier, and the walls are made of laid stone. /n There is a door to your north and west.");
-
+                System.out.println("The room you enter is cast in light from a central brazier, and the walls are made of laid stone. \n There is a door to your north and west.");
 			}
 			else if(currentRoom.getID() == 3)
 			{
 				currentRoom = rooms[1];
                 System.out.println("The wide atrium you enter has chiseled stone columns and brick archways adorned with porticos containing crumbling statues. \n There is a cobweb-filled hallway to your west and a torch-lit corridor to your east.");
-
+			}
+			else
+			{
+				System.out.println("You can't move in this direction.");
 			}
 		}
 	}
