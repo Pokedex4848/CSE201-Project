@@ -80,8 +80,10 @@ public class Player
 		{
 			checkItems();
 		}
+		// Interprets the input to call the openDoor method to open doors in a room
 		else if(input.contains("unlock") || input.contains("open"))
 		{
+			// Runs if the Rusty Key is in the room
 			if(currentRoom.getID() == 4 && inventory.contains("Rusty Key"))
 			{
 				if(!doors[0].isOpen())
@@ -94,6 +96,7 @@ public class Player
 					System.out.println("This door has already been unlocked!");
 				}
 			}
+			// Runs if the Golden Key is in the room
 			else if(currentRoom.getID() == 6 && inventory.contains("Golden Key"))
 			{
 				if(!doors[1].isOpen())
@@ -107,6 +110,8 @@ public class Player
 				}
 			}
 		}
+		// Interpret input that allows the user to climb a ladder in order to reach a
+		// key if they have the materials to fix it.
 		else if(input.contains("ladder") && (input.contains("fix") || input.contains("repair")))
 		{
 			if(currentRoom.getID() == 5)
@@ -127,6 +132,7 @@ public class Player
 				System.out.println("This is not the right room for that.");
 			}
 		}
+		// Runs if the method can't interpret a command entered by the user
 		else
 		{
 			System.out.println("I do not recognize this command.");
@@ -152,6 +158,8 @@ public class Player
 	 */
 	public void move(String direction)
 	{
+		// Moves the character north and gives them either a short description of the
+		// room they entered or tells them they cannot move in that direction
 		if(direction.equals("up"))
 		{
 			if(currentRoom.getID() == 2)
@@ -174,6 +182,8 @@ public class Player
 				System.out.println("You can't move in this direction.");
 			}
 		}
+		// Moves the character south and gives them either a short description of the
+		// room they entered or tells them they cannot move in that direction
 		else if(direction.equals("down"))
 		{
 			if(currentRoom.getID() == 6)
@@ -196,6 +206,8 @@ public class Player
 				System.out.println("You can't move in this direction.");
 			}
 		}
+		// Moves the character west and gives them either a short description of the
+		// room they entered or tells them they cannot move in that direction
 		else if(direction.equals("left"))
 		{
 			if(currentRoom.getID() == 7)
@@ -223,6 +235,8 @@ public class Player
 				System.out.println("You can't move in this direction.");
 			}
 		}
+		// Moves the character east and gives them either a short description of the
+		// room they entered or tells them they cannot move in that direction
 		else if(direction.equals("right"))
 		{
 			if(currentRoom.getID() == 6)

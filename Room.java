@@ -45,7 +45,7 @@ public class Room {
         case 3:
             return "Steaming pipes spiderweb the walls, hissing softly as they release occasional bursts of vapor into the air. \n The heat from the pipes warms the room, creating a slight haze that blurs the edges of the shadows. \n A mahogany desk sits in the corner, atop its surface sits a rusting key. \n There is a passage to your north, where the scent of damp earth drifts in, and another to the east, obscured by a slight fog from the steam.";
         case 4:
-            return "This hallway is barren except for the braziers placed at intervals along the walls, casting flickering pools of orange light that barely break through the darkness. The stone floor is cold and slightly damp beneath your feet, and the silence here feels almost heavy. There is a door to your east, slightly ajar, and another to the south, its iron handle tarnished with age.";
+            return "This hallway is barren except for the braziers placed at intervals along the walls, \n casting flickering pools of orange light that barely break through the darkness. The stone floor is cold and slightly damp beneath your feet, \n and the silence here feels almost heavy. There is a door to your east, slightly ajar, and another to the south, its iron handle tarnished with age.";
         case 5:
             return "The wood paneling looks weatherd and worn with open knots in the wood. \n A wide bookshelf sits in the back of the room, and with something glittering at the top. Looking closer at the ladder, a rung is missing which makes it unusable. Perhaps you could fix it?";
         case 6:
@@ -68,6 +68,7 @@ public class Room {
     {
         if(canPickUp)
         {
+        	// Picks up key in room 3
             if(roomID == 3 && input.contains("key"))
             {
                 canPickUp = false;
@@ -75,6 +76,7 @@ public class Room {
                 System.out.println("Picked up rusty key!");
                 return true;
             }
+            // Picks up key in room 5
             else if(roomID == 5 && input.contains("key"))
             {
             	canPickUp = false;
@@ -82,6 +84,7 @@ public class Room {
                 System.out.println("Picked up golden key!");
                 return true;
             }
+            // Picks up wooden plank in room 2
             else if(roomID == 2 && (input.contains("wood") || input.contains("plank")))
             {
             	canPickUp = false;
@@ -89,6 +92,7 @@ public class Room {
             	System.out.println("Picked up wooden plank!");
             	return true;
             }
+            // Tells the user an item is not in that room
             else
             {
                 System.out.println("This item doesn't exist in this room!");
@@ -121,6 +125,10 @@ public class Room {
         return roomID;
     }
     
+	/**
+	 * Method that can allow an item to be picked up, or restrict an item from being
+	 * picked up.
+	 */
     public void togglePickUp()
     {
     	canPickUp = !canPickUp;
